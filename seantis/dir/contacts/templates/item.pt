@@ -1,0 +1,110 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="seantis.dir.contacts">
+   
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+        <a tal:attributes="href python: context.parent().absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="python: context.parent().title" /></a>
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+        
+        <div id="directoryDetails">
+            <h2>
+                <tal:block content="context/title" />
+                <tal:block tal:condition="context/cat1">, </tal:block>
+                <span class="directoryTypes" tal:condition="context/cat1" tal:content="python: ', '.join(context.cat1)" />
+            </h2>
+
+            <div id="directoryResultList">
+             <div class="directoryInfoText">
+                <div class="directoryInfoImage" tal:define="image nocall:context/image" tal:condition="nocall:image">
+                  <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};"
+                      height="64" width="64"
+                  />
+                  <!-- image with variable width -->
+                  <!--<img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
+                                   height image/_height | nothing;
+                                   width image/_width | nothing;"
+                  />-->
+                </div>
+                <div class="documentDescription">
+                    <div tal:content="context/description"></div>
+                </div>
+                <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
+                <div class="directoryDates">
+                  <p><span tal:content="context/zipcode" /> <span tal:content="context/city" /></p>
+                  <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <div id="directoryInfoPage">
+            <h2 i18n:translate="Contact persons"></h2>
+            <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
+                <div class="documentDescription">
+                    <p>
+                        <img tal:define="image nocall:contact/image" tal:condition="nocall:image" tal:attributes="src string:${contact/absolute_url}/@@download/image/${image/filename};" height="32" width="32"/>
+                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                    </p>
+                </div>
+                <p>
+                    <span tal:content="contact/phone" /><br />
+                    <span tal:content="contact/fax" /><br />
+                    <span tal:content="contact/email" /><br />
+                    <span tal:content="contact/function" />
+                </p>
+            </div>
+        </div>
+
+        <!--<p tal:content="context/street">
+        </p>
+        <p>
+            <span tal:content="context/zipcode" /> <span tal:content="context/city" />
+        </p>
+        <p tal:content="context/phone">
+        </p>
+        <p tal:content="context/fax">
+        </p>
+        <p tal:condition="python: hasattr(context, 'email')">
+            <a tal:attributes="href python: 'mailto:%s' % context.email" tal:content="context/email" />
+        </p>
+        <p tal:condition="python: hasattr(context, 'url')">
+            <a tal:attributes="href context/url" tal:content="context/url" />
+        </p>
+        <p>
+            <tal:block condition="context/opening_hours">
+                <span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" />
+            </tal:block>
+        </p>
+            <div class="zug-directory-contact" tal:condition="view/contacts">
+                <h2 i18n:translate="Contact persons"></h2>
+                <div tal:repeat="contact view/contacts">
+                    <div tal:define="image nocall:contact/image" tal:condition="nocall:image">
+                        <img tal:attributes="src string:${contact/absolute_url}/@@download/image/${image/filename};" height="64" width="64"/>
+                    </div>
+                    <p>
+                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                    </p>
+                    <p tal:content="contact/phone" />
+                    <p tal:content="contact/fax" />
+                    <p tal:content="contact/email" />
+                    <p tal:content="contact/function" />
+                </div>
+            </div>
+        </div>-->
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

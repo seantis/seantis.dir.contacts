@@ -1,0 +1,26 @@
+<div xmlns="http://www.w3.org/1999/xhtml"
+   xmlns:tal="http://xml.zope.org/namespaces/tal"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.contacts"
+   xml:lang="en"
+   lang="en">
+
+  <div class="directoryInfoText">
+    <div class="directoryInfoImage" tal:define="image nocall:context/image" tal:condition="nocall:image">
+      <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};"
+          height="64" width="64"
+      />
+      <!-- image with variable width -->
+      <!--<img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
+                       height image/_height | nothing;
+                       width image/_width | nothing;"
+      />-->
+    </div>
+    <a tal:attributes="href context/absolute_url" tal:content="context/title"></a>
+    <div class="documentDescription" content="context/description"></div>
+    <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
+    <div class="directoryDates">
+      <p><span tal:content="context/zipcode" /> <span tal:content="context/city" /></p>
+      <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
+    </div>
+  </div>
+</div>
