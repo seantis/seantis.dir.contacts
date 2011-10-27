@@ -57,43 +57,6 @@
             </div>
         </div>
 
-        <!--<p tal:content="context/street">
-        </p>
-        <p>
-            <span tal:content="context/zipcode" /> <span tal:content="context/city" />
-        </p>
-        <p tal:content="context/phone">
-        </p>
-        <p tal:content="context/fax">
-        </p>
-        <p tal:condition="python: hasattr(context, 'email')">
-            <a tal:attributes="href python: 'mailto:%s' % context.email" tal:content="context/email" />
-        </p>
-        <p tal:condition="python: hasattr(context, 'url')">
-            <a tal:attributes="href context/url" tal:content="context/url" />
-        </p>
-        <p>
-            <tal:block condition="context/opening_hours">
-                <span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" />
-            </tal:block>
-        </p>
-            <div class="zug-directory-contact" tal:condition="view/contacts">
-                <h2 i18n:translate="Contact persons"></h2>
-                <div tal:repeat="contact view/contacts">
-                    <div tal:define="image nocall:contact/image" tal:condition="nocall:image">
-                        <img tal:attributes="src string:${contact/absolute_url}/@@download/image/${image/filename};" height="64" width="64"/>
-                    </div>
-                    <p>
-                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
-                    </p>
-                    <p tal:content="contact/phone" />
-                    <p tal:content="contact/fax" />
-                    <p tal:content="contact/email" />
-                    <p tal:content="contact/function" />
-                </div>
-            </div>
-        </div>-->
-
         <div tal:replace="structure provider:plone.belowcontentbody" />
 
     </tal:main-macro>
