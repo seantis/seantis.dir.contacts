@@ -24,7 +24,7 @@
 
             <div id="directoryResultList">
              <div class="directoryInfoText">
-                <div class="directoryInfoImage" tal:define="image nocall:context/image" tal:condition="nocall:image">
+                <div class="directoryInfoImage" tal:condition="context/image">
                     <img tal:replace="structure context/@@images/image/thumb" />
                 </div>
                 <div class="documentDescription">
@@ -44,8 +44,8 @@
             <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
                 <div class="documentDescription">
                     <p>
-                        <img tal:replace="structure context/@@images/image/tile" />
-                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                        <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
+                        <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
                     </p>
                 </div>
                 <p>
