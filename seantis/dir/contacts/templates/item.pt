@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div id="directoryInfoPage">
+        <div id="directoryInfoPage" tal:condition="view/contacts">
             <h2 i18n:translate="Contact persons"></h2>
             <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
                 <div class="documentDescription">
