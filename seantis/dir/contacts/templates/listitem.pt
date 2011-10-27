@@ -5,16 +5,10 @@
    lang="en">
 
   <div class="directoryInfoText">
-    <div class="directoryInfoImage" tal:define="image nocall:context/image" tal:condition="nocall:image">
-      <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};"
-          height="64" width="64"
-      />
-      <!-- image with variable width -->
-      <!--<img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
-                       height image/_height | nothing;
-                       width image/_width | nothing;"
-      />-->
+    <div class="directoryInfoImage" tal:condition="context/image">
+      <img tal:replace="structure context/@@images/image/tile" />
     </div>
+
     <a tal:attributes="href context/absolute_url" tal:content="context/title"></a>
     <div class="documentDescription" content="context/description"></div>
     <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>

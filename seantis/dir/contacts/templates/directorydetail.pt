@@ -1,10 +1,7 @@
 <div xmlns:tal="http://xml.zope.org/namespaces/tal" xmlns:i18n="http://xml.zope.org/namespaces/i18n" i18n:domain="seantis.dir.contacts" id="landingPageIntro">
     <div id="landingPageText">
-      <div id="landingPageImage" tal:define="image nocall:context/image" tal:condition="nocall:image">
-        <img tal:attributes="src string:${context/absolute_url}/@@download/image/${image/filename};
-                       height image/_height | nothing;
-                       width image/_width | nothing;"
-        />
+      <div id="landingPageImage" tal:condition="context/image">
+        <img tal:replace="structure context/@@images/image/mini" />
       </div>
       <h2 tal:content="context/subtitle" />
       <div tal:content="structure context/description" />
