@@ -49,6 +49,9 @@
                         </a>
                     </p>                    
                     <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
+                    <div tal:condition="python: hasattr(context, 'information') and context.information">
+                        <p tal:content="structure context/information"></p>
+                    </div>
                 </div>
               </div>
             </div>
@@ -76,10 +79,6 @@
                 </p>
 
             </div>
-        </div>
-
-        <div tal:condition="python: hasattr(context, 'information') and context.information">
-            <div tal:content="structure context/information"></div>
         </div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />
