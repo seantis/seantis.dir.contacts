@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-09-06 08:47+0000\n"
+"POT-Creation-Date: 2011-12-01 16:17+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,17 +18,18 @@ msgstr ""
 msgid "Contact Person"
 msgstr "Kontaktperson"
 
-#: ./templates/item.pt:27
+#: ./templates/item.pt:58
 msgid "Contact persons"
 msgstr "Kontaktpersonen"
 
-#: ./contact.py:60
-#: ./item.py:70
+#: ./contact.py:67
+#: ./item.py:71
 msgid "Email"
 msgstr "Email"
 
-#: ./contact.py:53
-#: ./item.py:58
+#: ./contact.py:60
+#: ./item.py:59
+#: ./templates/item.pt:41
 msgid "Fax"
 msgstr "Fax"
 
@@ -36,17 +37,21 @@ msgstr "Fax"
 msgid "First Name"
 msgstr "Vorname"
 
-#: ./contact.py:67
+#: ./contact.py:74
 msgid "Function"
 msgstr "Funktion"
 
 #: ./contact.py:25
 #: ./directory.py:18
-#: ./item.py:28
+#: ./item.py:29
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:64
+#: ./item.py:84
+msgid "Information"
+msgstr "Informationen"
+
+#: ./item.py:65
 msgid "Internet Address"
 msgstr "Internet Adresse"
 
@@ -54,27 +59,29 @@ msgstr "Internet Adresse"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: ./item.py:76
-#: ./templates/listitem.pt:23
+#: ./item.py:77
+#: ./templates/item.pt:51
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
-#: ./contact.py:46
-#: ./item.py:52
+#: ./contact.py:53
+#: ./item.py:53
+#: ./templates/item.pt:40
 msgid "Phone"
 msgstr "Telefon"
 
 #: ./contact.py:32
-#: ./item.py:34
+#: ./item.py:35
 msgid "Street"
 msgstr "Strasse"
 
-#: ./item.py:46
+#: ./contact.py:46
+#: ./item.py:47
 msgid "Town"
 msgstr "Ort"
 
 #: ./contact.py:39
-#: ./item.py:40
+#: ./item.py:41
 msgid "Zipcode"
 msgstr "PLZ"
 
