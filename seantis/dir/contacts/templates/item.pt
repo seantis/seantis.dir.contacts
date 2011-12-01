@@ -66,21 +66,16 @@
                         </tal:block>
                     </p>
                 </div>
+
                 <p>
-                    <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
-                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
-                    <tal:block tal:condition="contact/function">-
-                        <span style="font-weight: normal" tal:content="contact/function" />
-                    </tal:block>
+                    <span tal:condition="python: hasattr(contact, 'street')" tal:content="contact/street" /><br />
+                    <span tal:condition="python: hasattr(contact, 'zipcode')" tal:content="contact/zipcode" /> <span tal:condition="python: hasattr(contact, 'town')" tal:content="contact/town" /><br />
+                    <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:condition="python: hasattr(contact, 'phone')" tal:content="contact/phone" /><br />
+                    <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" tal:condition="python: hasattr(contact, 'fax')"/><br />
+                    <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
                 </p>
+
             </div>
-            <p>
-                <span tal:content="contact/street" /><br />
-                <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
-                <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:content="contact/phone" /><br />
-                <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" /><br />
-                <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
-            </p>
         </div>
 
         <div tal:condition="python: hasattr(context, 'information') and context.information">
