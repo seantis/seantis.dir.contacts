@@ -41,8 +41,12 @@
                         <span i18n:translate="Fax" tal:condition="context/fax">Fax</span> <span tal:content="context/fax" />
                     </p>  
                     <p>
-                        <a href="" tal:attributes="href python: 'mailto:' + context.email"><span tal:replace="context/email" /></a><br />
-                        <a href="" tal:attributes="href context/url"><span tal:replace="context/url" /></a>
+                        <a tal:condition="python: hasattr(context, 'email')" tal:attributes="href python: 'mailto:' + (context.email or '')">
+                            <span tal:replace="context/email" />
+                        </a><br />
+                        <a tal:condition="python: hasattr(context, 'url')" tal:attributes="href context/url">
+                            <span tal:replace="context/url" />
+                        </a>
                     </p>                    
                     <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
                 </div>
@@ -75,7 +79,7 @@
                 <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
                 <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:content="contact/phone" /><br />
                 <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" /><br />
-                <a href="" tal:attributes="href python: 'mailto:' + str(contact.email)"><span tal:replace="contact/email" /></a><br />
+                <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
             </p>
         </div>
 
