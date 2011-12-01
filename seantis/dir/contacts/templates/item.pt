@@ -32,40 +32,55 @@
                 </div>
                 <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
                 <div class="directoryDates">
-                  <p><span tal:content="context/zipcode" /> <span tal:content="context/city" /></p>
-                  <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
+                    <p>
+                        <span tal:content="context/street" /><br />
+                        <span tal:content="context/zipcode" /> <span tal:content="context/city" />
+                    </p>
+                    <p>
+                        <span i18n:translate="Phone" tal:condition="context/phone">Phone</span> <span tal:content="context/phone" /><br />
+                        <span i18n:translate="Fax" tal:condition="context/fax">Fax</span> <span tal:content="context/fax" />
+                    </p>  
+                    <p>
+                        <a href="" tal:attributes="href python: 'mailto:' + context.email"><span tal:replace="context/email" /></a><br />
+                        <a href="" tal:attributes="href context/url"><span tal:replace="context/url" /></a>
+                    </p>                    
+                    <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
                 </div>
               </div>
             </div>
         </div>
 
-        <div id="directoryInfoPage">
-            <tal:block condition="view/contacts">
-                <h2 i18n:translate="Contact persons"></h2>
-                <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
-                    <div class="documentDescription">
-                        <p>
-                            <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
-                            <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
-                            <tal:block tal:condition="contact/function">,
-                                <span style="font-weight: normal" tal:content="contact/function" />
-                            </tal:block>
-                        </p>
-                    </div>
+        <div id="directoryInfoPage" tal:condition="view/contacts">
+            <h2 i18n:translate="Contact persons"></h2>
+            <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
+                <div class="documentDescription">
                     <p>
-                        <span tal:content="contact/street" /><br />
-                        <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
-                        <span tal:content="contact/phone" /><br />
-                        <span tal:content="contact/fax" /><br />
-                        <span tal:content="contact/email" /><br />
-                        
+                        <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
+                        <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                        <tal:block tal:condition="contact/function">,
+                            <span style="font-weight: normal" tal:content="contact/function" />
+                        </tal:block>
                     </p>
                 </div>
-            </tal:block>
-
-            <div tal:condition="python: hasattr(context, 'information') and context.information">
-                <div tal:content="structure context/information"></div>
+                <p>
+                    <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
+                    <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                    <tal:block tal:condition="contact/function">-
+                        <span style="font-weight: normal" tal:content="contact/function" />
+                    </tal:block>
+                </p>
             </div>
+            <p>
+                <span tal:content="contact/street" /><br />
+                <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
+                <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:content="contact/phone" /><br />
+                <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" /><br />
+                <a href="" tal:attributes="href python: 'mailto:' + str(contact.email)"><span tal:replace="contact/email" /></a><br />
+            </p>
+        </div>
+
+        <div tal:condition="python: hasattr(context, 'information') and context.information">
+            <div tal:content="structure context/information"></div>
         </div>
 
         <div tal:replace="structure provider:plone.belowcontentbody" />

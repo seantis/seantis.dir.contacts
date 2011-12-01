@@ -5,16 +5,6 @@
    lang="en">
 
   <div class="directoryInfoText">
-    <div class="directoryInfoImage" tal:condition="context/image">
-      <img tal:replace="structure context/@@images/image/tile" />
-    </div>
-
     <a tal:attributes="href context/absolute_url" tal:content="context/title"></a>
-    <div class="documentDescription" content="context/description"></div>
-    <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
-    <div class="directoryDates">
-      <p><span tal:content="context/zipcode" /> <span tal:content="context/city" /></p>
-      <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="context/opening_hours" /></p>
-    </div>
   </div>
 </div>
