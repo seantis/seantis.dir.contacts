@@ -28,7 +28,7 @@
                     <img tal:replace="structure context/@@images/image/thumb" />
                 </div>
                 <div class="documentDescription">
-                    <div tal:content="context/description"></div>
+                    <div><div tal:content="structure context/html_description"></div></div>
                 </div>
                 <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
                 <div class="directoryDates">

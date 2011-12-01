@@ -4,6 +4,6 @@
         <img tal:replace="structure context/@@images/image/mini" />
       </div>
       <h2 tal:content="context/subtitle" />
-      <div tal:content="structure context/description" />
+      <div tal:content="structure context/html_description" />
     </div>
 </div>
