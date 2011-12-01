@@ -1,6 +1,6 @@
 from five import grok
 
-from zope.schema import TextLine
+from zope.schema import TextLine, Text
 from zope.schema import URI
 from zope.interface import alsoProvides
 from plone.memoize import view
@@ -10,6 +10,7 @@ from plone.app.dexterity.behaviors.metadata import MetadataBase
 from plone.app.dexterity.behaviors.metadata import DCFieldProperty
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
+from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 from seantis.dir.base import core
 from seantis.dir.base.item import IDirectoryItem
@@ -78,6 +79,13 @@ class IExtendedDirectoryItem(form.Schema):
             default=u''
         )
 
+    form.widget(information=WysiwygFieldWidget)
+    information = Text(
+            title=_(u'Information'),
+            required=False,
+            default=u''
+        )
+
 alsoProvides(IExtendedDirectoryItem, IFormFieldProvider)
 
 
@@ -91,6 +99,7 @@ class ExtendedDirectoryItem(MetadataBase):
     url = DCFieldProperty(IExtendedDirectoryItem['url'])
     email = DCFieldProperty(IExtendedDirectoryItem['email'])
     opening_hours = DCFieldProperty(IExtendedDirectoryItem['opening_hours'])
+    information = DCFieldProperty(IExtendedDirectoryItem['information'])
 
 
 class DirectoryItemSearchableTextExtender(grok.Adapter):

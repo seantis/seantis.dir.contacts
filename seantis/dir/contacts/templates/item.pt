@@ -39,26 +39,32 @@
             </div>
         </div>
 
-        <div id="directoryInfoPage" tal:condition="view/contacts">
-            <h2 i18n:translate="Contact persons"></h2>
-            <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
-                <div class="documentDescription">
+        <div id="directoryInfoPage">
+            <tal:block condition="view/contacts">
+                <h2 i18n:translate="Contact persons"></h2>
+                <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
+                    <div class="documentDescription">
+                        <p>
+                            <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
+                            <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
+                            <tal:block tal:condition="contact/function">,
+                                <span style="font-weight: normal" tal:content="contact/function" />
+                            </tal:block>
+                        </p>
+                    </div>
                     <p>
-                        <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
-                        <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
-                        <tal:block tal:condition="contact/function">,
-                            <span style="font-weight: normal" tal:content="contact/function" />
-                        </tal:block>
+                        <span tal:content="contact/street" /><br />
+                        <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
+                        <span tal:content="contact/phone" /><br />
+                        <span tal:content="contact/fax" /><br />
+                        <span tal:content="contact/email" /><br />
+                        
                     </p>
                 </div>
-                <p>
-                    <span tal:content="contact/street" /><br />
-                    <span tal:content="contact/zipcode" /> <span tal:content="contact/town" /><br />
-                    <span tal:content="contact/phone" /><br />
-                    <span tal:content="contact/fax" /><br />
-                    <span tal:content="contact/email" /><br />
-                    
-                </p>
+            </tal:block>
+
+            <div tal:condition="python: hasattr(context, 'information') and context.information">
+                <div tal:content="structure context/information"></div>
             </div>
         </div>
 
