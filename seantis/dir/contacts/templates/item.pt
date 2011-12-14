@@ -62,7 +62,7 @@
             <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
                 <div class="documentDescription">
                     <p>
-                        <img tal:condition="context/image" tal:replace="structure context/@@images/image/tile" />
+                        <img tal:condition="contact/image" tal:replace="structure contact/@@images/image/tile" />
                         <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
                         <tal:block tal:condition="contact/function">,
                             <span style="font-weight: normal" tal:content="contact/function" />
