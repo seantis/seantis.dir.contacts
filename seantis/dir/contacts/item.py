@@ -73,7 +73,7 @@ class IExtendedDirectoryItem(form.Schema):
             default=u''
         )
 
-    opening_hours = TextLine(
+    opening_hours = Text(
             title=_(u'Opening Hours'),
             required=False,
             default=u''
@@ -156,6 +156,10 @@ class View(core.View):
             return self.context.description.split('\n')
         else:
             return None
+
+    def html_opening_hours(self):
+        """Returns the opening_hours with newlines replaced by <br/> tags"""
+        return self.context.opening_hours and self.context.opening_hours.replace('\n', '<br />') or ''
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.base.item."""
