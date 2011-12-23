@@ -16,12 +16,13 @@
         <div tal:replace="structure provider:plone.abovecontentbody" />
         
         <div id="directoryDetails">
+
+            <div class="directoryTypes" tal:condition="context/cat1" tal:content="python: ', '.join(context.cat1)"></div>
+
             <h2>
                 <tal:block content="context/title" />
-                <tal:block tal:condition="context/cat1">, </tal:block>
-                <span class="directoryTypes" tal:condition="context/cat1" tal:content="python: ', '.join(context.cat1)" />
             </h2>
-
+            
             <div id="directoryResultList">
              <div class="directoryInfoText">
                 <div class="directoryInfoImage" tal:condition="context/image">
@@ -60,24 +61,24 @@
         <div id="directoryInfoPage" tal:condition="view/contacts">
             <h2 i18n:translate="Contact persons"></h2>
             <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
-                <div class="documentDescription">
+                <div class="directoryInfoText">
+                    <div class="documentDescription">
+                            <p>
+                                <span tal:replace="contact/first_name" /> <span tal:replace="contact/last_name" /><br />
+                                <span tal:condition="contact/function" tal:replace="contact/function" />
+                            </p>
+                            <div tal:condition="contact/image"><img tal:replace="structure contact/@@images/image/thumb" /></div>
+                            
+                     </div>
+
                     <p>
-                        <img tal:condition="contact/image" tal:replace="structure contact/@@images/image/tile" />
-                        <span tal:content="contact/last_name" /> <span tal:content="contact/first_name" />
-                        <tal:block tal:condition="contact/function">,
-                            <span style="font-weight: normal" tal:content="contact/function" />
-                        </tal:block>
+                        <span tal:condition="python: hasattr(contact, 'street')" tal:content="contact/street" /><br />
+                        <span tal:condition="python: hasattr(contact, 'zipcode')" tal:content="contact/zipcode" /> <span tal:condition="python: hasattr(contact, 'town')" tal:content="contact/town" /><br />
+                        <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:condition="python: hasattr(contact, 'phone')" tal:content="contact/phone" /><br />
+                        <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" tal:condition="python: hasattr(contact, 'fax')"/><br />
+                        <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
                     </p>
                 </div>
-
-                <p>
-                    <span tal:condition="python: hasattr(contact, 'street')" tal:content="contact/street" /><br />
-                    <span tal:condition="python: hasattr(contact, 'zipcode')" tal:content="contact/zipcode" /> <span tal:condition="python: hasattr(contact, 'town')" tal:content="contact/town" /><br />
-                    <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:condition="python: hasattr(contact, 'phone')" tal:content="contact/phone" /><br />
-                    <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" tal:condition="python: hasattr(contact, 'fax')"/><br />
-                    <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
-                </p>
-
             </div>
         </div>
 
