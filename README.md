@@ -25,7 +25,16 @@ seantis.dir.contacts relies on Plone 4.0+ with dexterity and seantis.dir.base:
             ...
             seantis.dir.contacts
 
-3. Install dexterity and seantis.dir.contacts using portal_quickinstaller
+
+3. Ensure that the i18n files are compiled by adding
+
+        [instance]
+        ...
+        environment-vars = 
+            ...
+            zope_i18n_compile_mo_files true
+
+4. Install dexterity and seantis.dir.contacts using portal_quickinstaller
 
 # License
 
