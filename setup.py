@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.3'
+version = '1.0'
 
 setup(name='seantis.dir.contacts',
       version=version,
-      description="Directories for the canton of Zug",
-      long_description=open("README.txt").read() + "\n" +
+      description="Directory of Contacts",
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
@@ -29,7 +29,8 @@ setup(name='seantis.dir.contacts',
           'plone.app.dexterity',
           'collective.autopermission',
           'collective.testcaselayer',
-          'collective.dexteritytextindexer'
+          'collective.dexteritytextindexer',
+          'seantis.dir.base'
       ],
       entry_points="""
       [z3c.autoinclude.plugin]
