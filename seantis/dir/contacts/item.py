@@ -123,7 +123,8 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
                          get(context, 'fax'),
                          get(context, 'url'),
                          get(context, 'email'),
-                         get(context, 'opening_hours')
+                         get(context, 'opening_hours'),
+                         get(context, 'information'),
                     ))
 
         return result
