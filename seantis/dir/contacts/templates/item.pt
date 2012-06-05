@@ -8,6 +8,10 @@
    
 <body>
 
+<metal:block fill-slot="head_slot">
+    <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
+</metal:block>
+
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -56,6 +60,12 @@
                 </div>
               </div>
             </div>
+            <div id="directoryResultMap">
+                <tal:omit tal:repeat="cgmap view/@@collectivegeo-maps/mapwidgets" tal:omit-tag="">
+                    <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
+                </tal:omit>
+            </div>
+            <div style="clear:both;"></div>
         </div>
 
         <div id="directoryInfoPage" tal:condition="view/contacts">
