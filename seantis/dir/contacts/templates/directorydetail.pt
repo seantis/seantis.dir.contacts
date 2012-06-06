@@ -6,10 +6,4 @@
       <h2 tal:content="context/subtitle" />
       <div tal:content="structure context/html_description" />
     </div>
-    <div id="directoryResultMap">
-        <tal:omit tal:repeat="cgmap view/@@collectivegeo-maps/mapwidgets" tal:omit-tag="">
-            <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
-        </tal:omit>
-    </div>
-    <div style="clear: both;"></div>
 </div>
