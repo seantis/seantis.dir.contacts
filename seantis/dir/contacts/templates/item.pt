@@ -8,11 +8,6 @@
    
 <body>
 
-<metal:block fill-slot="head_slot" tal:condition="view/show_map">
-    <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
-    <script type="text/javascript" src="++resource++geo.kml.javascripts/kml_openlayers.js"></script>
-</metal:block>
-
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
@@ -62,6 +57,11 @@
               </div>
             </div>
             <div id="directoryResultMap" tal:condition="view/show_map">
+                <metal:block fill-slot="head_slot" tal:condition="view/show_map">
+    <metal:use use-macro="context/@@collectivegeo-macros/openlayers" />
+    <script type="text/javascript" src="++resource++geo.kml.javascripts/kml_openlayers.js"></script>
+    <script type="text/javascript" tal:attributes="src string:$portal_url/deprecated.js"></script>
+</metal:block>
                 <tal:omit tal:repeat="cgmap view/@@collectivegeo-maps/mapwidgets" tal:omit-tag="">
                     <metal:use use-macro="context/@@collectivegeo-macros/map-widget" />
                 </tal:omit>
