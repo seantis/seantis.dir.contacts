@@ -15,6 +15,7 @@ from seantis.dir.base.fieldmap import FieldMap
 from seantis.dir.base.schemafields import Email
 
 from seantis.dir.contacts import _
+from seantis.dir.contacts.directory import IContactsDirectory
 from seantis.dir.contacts.contact import IContactPerson
 
 class IContactsDirectoryItem(item.IDirectoryItem):
@@ -127,14 +128,14 @@ class View(core.View):
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
     """Adapter extending the import/export fieldmap of seantis.dir.base.item."""
-    grok.context(IContactsDirectoryItem)
+    grok.context(IContactsDirectory)
     grok.provides(IFieldMapExtender)
 
     def __init__(self, context):
         self.context = context
 
-    def extend_import(self):
-        itemmap = self.context
+    def extend_import(self, itemmap):
+        itemmap.typename = 'seantis.dir.contacts.item'
         itemmap.interface = IContactsDirectoryItem
 
         extended = ['street', 'zipcode', 'city', 'phone', 'fax', 
