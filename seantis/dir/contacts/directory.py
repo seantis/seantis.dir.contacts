@@ -1,15 +1,10 @@
 from five import grok
-from zope.interface import alsoProvides
 from plone.namedfile.field import NamedImage
-from plone.autoform.interfaces import IFormFieldProvider
-from plone.directives import form
 
-from seantis.dir.base import core
 from seantis.dir.base import directory
-
 from seantis.dir.contacts import _
 
-class IContactsDirectory(form.Schema):
+class IContactsDirectory(directory.IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(
@@ -18,18 +13,12 @@ class IContactsDirectory(form.Schema):
             default=None
         )
 
-alsoProvides(IContactsDirectory, IFormFieldProvider)
-
-@core.ExtendedDirectory
-class ContactsDirectoryFactory(core.DirectoryMetadataBase):
-    interface = IContactsDirectory
-
 class ContactsDirectory(directory.Directory):
     pass
 
-class ExtendedDirectoryViewlet(grok.Viewlet):
-    grok.context(directory.IDirectory)
-    grok.name('seantis.dir.base.directory.detail')
+class ContactsDirectoryViewlet(grok.Viewlet):
+    grok.context(IContactsDirectory)
+    grok.name('seantis.dir.contacts.directory.detail')
     grok.require('zope2.View')
     grok.viewletmanager(directory.DirectoryViewletManager)
 
