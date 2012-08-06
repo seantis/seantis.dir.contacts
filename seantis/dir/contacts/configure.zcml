@@ -32,17 +32,27 @@
     <plone:behavior
         title="Contact Directory Item"
         description="Provides the additional fields for seantis.dir.base.item"
-        provides=".item.IExtendedDirectoryItem"
-        factory=".item.ExtendedDirectoryItem"
+        provides=".item.IContactsDirectoryItem"
+        factory=".item.ContactsDirectoryItemFactory"
         for="seantis.dir.base.item.IDirectoryItem"
         />
 
     <plone:behavior
         title="Contact Directory"
         description="Provides the additional fields for seantis.dir.base.directory"
-        provides=".directory.IExtendedDirectory"
-        factory=".directory.ExtendedDirectory"
+        provides=".directory.IContactsDirectory"
+        factory=".directory.ContactsDirectoryFactory"
         for="seantis.dir.base.directory.IDirectory"
         />
+
+    <!-- Upgrade Steps -->
+    <genericsetup:upgradeStep
+        title="Reinstall behaviors"
+        description=""
+        source="1"
+        destination="2"
+        handler="seantis.dir.contacts.setuphandlers.installBehavior"
+        sortkey="1"
+        profile="seantis.dir.contacts:default"/>
 
 </configure>

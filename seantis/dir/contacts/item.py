@@ -6,15 +6,12 @@ from zope.interface import alsoProvides
 from plone.memoize import view
 from plone.namedfile.field import NamedImage
 from plone.autoform.interfaces import IFormFieldProvider
-from plone.app.dexterity.behaviors.metadata import MetadataBase
-from plone.app.dexterity.behaviors.metadata import DCFieldProperty
 from collective.dexteritytextindexer import IDynamicTextIndexExtender
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 
 from seantis.dir.base import core
-from seantis.dir.base.item import IDirectoryItem
-from seantis.dir.base.item import DirectoryItemViewletManager
+from seantis.dir.base import item
 from seantis.dir.base.interfaces import IFieldMapExtender
 from seantis.dir.base.fieldmap import FieldMap
 from seantis.dir.base.schemafields import Email
@@ -22,7 +19,7 @@ from seantis.dir.base.schemafields import Email
 from seantis.dir.contacts import _
 from seantis.dir.contacts.contact import IContactPerson
   
-class IExtendedDirectoryItem(form.Schema):
+class IContactsDirectoryItem(form.Schema):
     """Extends the seantis.dir.IDirectoryItem."""
 
     image = NamedImage(
@@ -86,24 +83,17 @@ class IExtendedDirectoryItem(form.Schema):
             default=u''
         )
 
-alsoProvides(IExtendedDirectoryItem, IFormFieldProvider)
+alsoProvides(IContactsDirectoryItem, IFormFieldProvider)
 
+@core.ExtendedDirectory
+class ContactsDirectoryItemFactory(core.DirectoryMetadataBase):
+    interface = IContactsDirectoryItem
 
-class ExtendedDirectoryItem(MetadataBase):
-    image = DCFieldProperty(IExtendedDirectoryItem['image'])
-    street = DCFieldProperty(IExtendedDirectoryItem['street'])
-    zipcode = DCFieldProperty(IExtendedDirectoryItem['zipcode'])
-    city = DCFieldProperty(IExtendedDirectoryItem['city'])
-    phone = DCFieldProperty(IExtendedDirectoryItem['phone'])
-    fax = DCFieldProperty(IExtendedDirectoryItem['fax'])
-    url = DCFieldProperty(IExtendedDirectoryItem['url'])
-    email = DCFieldProperty(IExtendedDirectoryItem['email'])
-    opening_hours = DCFieldProperty(IExtendedDirectoryItem['opening_hours'])
-    information = DCFieldProperty(IExtendedDirectoryItem['information'])
-
+class ContactsDirectoryItem(item.DirectoryItem):
+    pass
 
 class DirectoryItemSearchableTextExtender(grok.Adapter):
-    grok.context(IDirectoryItem)
+    grok.context(item.IDirectoryItem)
     grok.name('IExtendedDirectoryItem')
     grok.provides(IDynamicTextIndexExtender)
 
@@ -131,17 +121,17 @@ class DirectoryItemSearchableTextExtender(grok.Adapter):
 
 
 class ExtendedDirectoryItemViewlet(grok.Viewlet):
-    grok.context(IDirectoryItem)
+    grok.context(item.IDirectoryItem)
     grok.name('seantis.dir.base.item.detail')
     grok.require('zope2.View')
-    grok.viewletmanager(DirectoryItemViewletManager)
+    grok.viewletmanager(item.DirectoryItemViewletManager)
 
     template = grok.PageTemplateFile('templates/listitem.pt')
 
 
 class View(core.View):
     """Default view of a seantis.dir.contacts item."""
-    grok.context(IDirectoryItem)
+    grok.context(item.IDirectoryItem)
     grok.require('zope2.View')
 
     template = grok.PageTemplateFile('templates/item.pt')
@@ -172,7 +162,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
 
     def extend_import(self):
         itemmap = self.context
-        itemmap.interface = IExtendedDirectoryItem
+        itemmap.interface = IContactsDirectoryItem
 
         extended = ['street', 'zipcode', 'city', 'phone', 'fax', 
                     'url', 'email', 'opening_hours']
