@@ -6,4 +6,5 @@
       <h2 tal:content="context/subtitle" />
       <div tal:content="structure context/html_description" />
     </div>
+    <div style="clear: both;"></div>
 </div>
