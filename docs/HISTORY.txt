@@ -1,7 +1,7 @@
 
 # Changelog
 
-1.1a
+1.2a
 ----
 
 - Adds collective.geo compatiblity
