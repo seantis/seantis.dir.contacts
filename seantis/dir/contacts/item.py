@@ -9,8 +9,11 @@ from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import core
-from seantis.dir.base import item
-from seantis.dir.base.interfaces import IFieldMapExtender
+from seantis.dir.base.item import DirectoryItem, DirectoryItemViewletManager
+from seantis.dir.base.interfaces import (
+    IFieldMapExtender,
+    IDirectoryItem
+)
 from seantis.dir.base.fieldmap import FieldMap
 from seantis.dir.base.schemafields import Email
 
@@ -18,8 +21,8 @@ from seantis.dir.contacts import _
 from seantis.dir.contacts.directory import IContactsDirectory
 from seantis.dir.contacts.contact import IContactPerson
 
-class IContactsDirectoryItem(item.IDirectoryItem):
-    """Extends the seantis.dir.IDirectoryItem."""
+class IContactsDirectoryItem(IDirectoryItem):
+    """Extends the seantis.dir.base IDirectoryItem."""
 
     image = NamedImage(
             title=_(u'Image'),
@@ -91,14 +94,14 @@ class IContactsDirectoryItem(item.IDirectoryItem):
             default=u''
         )
 
-class ContactsDirectoryItem(item.DirectoryItem):
+class ContactsDirectoryItem(DirectoryItem):
     pass
 
 class ContactsDirectoryItemViewlet(grok.Viewlet):
     grok.context(IContactsDirectoryItem)
     grok.name('seantis.dir.contacts.item.detail')
     grok.require('zope2.View')
-    grok.viewletmanager(item.DirectoryItemViewletManager)
+    grok.viewletmanager(DirectoryItemViewletManager)
 
     template = grok.PageTemplateFile('templates/listitem.pt')
 
