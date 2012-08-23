@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-12-01 16:17+0000\n"
+"POT-Creation-Date: 2012-08-23 14:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,26 @@ msgstr ""
 msgid "Contact Person"
 msgstr "Kontaktperson"
 
-#: ./templates/item.pt:58
+#: ./templates/item.pt:69
 msgid "Contact persons"
 msgstr "Kontaktpersonen"
 
+#: ./profiles/default/types/seantis.dir.contacts.directory.xml
+msgid "Contacts Directory"
+msgstr "Konaktverzeichnis"
+
+#: ./profiles/default/types/seantis.dir.contacts.item.xml
+msgid "Contacts Directory Item"
+msgstr "Kontaktverzeichnis Eintrag"
+
 #: ./contact.py:67
-#: ./item.py:71
+#: ./item.py:77
 msgid "Email"
 msgstr "Email"
 
 #: ./contact.py:60
-#: ./item.py:59
-#: ./templates/item.pt:41
+#: ./item.py:63
+#: ./templates/item.pt:46
 msgid "Fax"
 msgstr "Fax"
 
@@ -42,16 +50,16 @@ msgid "Function"
 msgstr "Funktion"
 
 #: ./contact.py:25
-#: ./directory.py:18
-#: ./item.py:29
+#: ./directory.py:12
+#: ./item.py:28
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:84
+#: ./item.py:92
 msgid "Information"
 msgstr "Informationen"
 
-#: ./item.py:65
+#: ./item.py:70
 msgid "Internet Address"
 msgstr "Internet Adresse"
 
@@ -59,14 +67,14 @@ msgstr "Internet Adresse"
 msgid "Last Name"
 msgstr "Nachname"
 
-#: ./item.py:77
-#: ./templates/item.pt:51
+#: ./item.py:84
+#: ./templates/item.pt:56
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
 #: ./contact.py:53
-#: ./item.py:53
-#: ./templates/item.pt:40
+#: ./item.py:56
+#: ./templates/item.pt:45
 msgid "Phone"
 msgstr "Telefon"
 
@@ -76,12 +84,12 @@ msgid "Street"
 msgstr "Strasse"
 
 #: ./contact.py:46
-#: ./item.py:47
+#: ./item.py:49
 msgid "Town"
 msgstr "Ort"
 
 #: ./contact.py:39
-#: ./item.py:41
+#: ./item.py:42
 msgid "Zipcode"
 msgstr "PLZ"
 
