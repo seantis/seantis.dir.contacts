@@ -142,7 +142,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         itemmap.interface = IContactsDirectoryItem
 
         extended = ['street', 'zipcode', 'city', 'phone', 'fax', 
-                    'url', 'email', 'opening_hours']
+                    'url', 'email', 'opening_hours', 'information']
         
         itemmap.add_fields(extended, len(itemmap))
 
