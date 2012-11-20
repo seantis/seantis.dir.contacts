@@ -7,7 +7,11 @@ seantis.dir.contacts builds on seantis.dir.base, adding contact person types and
 
 # Dependencies
 
-seantis.dir.contacts relies on Plone 4.0+ with dexterity and seantis.dir.base:
+seantis.dir.contacts relies on Plone 4.0+ with dexterity and seantis.dir.base
+
+# Build Status
+
+[![Build Status](https://secure.travis-ci.org/seantis/seantis.dir.contacts.png)](https://travis-ci.org/seantis/seantis.dir.contacts)
 
 # Installation
 
