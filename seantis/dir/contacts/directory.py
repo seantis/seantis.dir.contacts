@@ -5,17 +5,20 @@ from seantis.dir.base.directory import Directory, DirectoryViewletManager
 from seantis.dir.base.interfaces import IDirectory
 from seantis.dir.contacts import _
 
+
 class IContactsDirectory(IDirectory):
     """Extends the seantis.dir.base.directory.IDirectory"""
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False,
-            default=None
-        )
+        title=_(u'Image'),
+        required=False,
+        default=None
+    )
+
 
 class ContactsDirectory(Directory):
     pass
+
 
 class ContactsDirectoryViewlet(grok.Viewlet):
     grok.context(IContactsDirectory)

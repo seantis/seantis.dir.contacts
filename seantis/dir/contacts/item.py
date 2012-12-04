@@ -21,81 +21,84 @@ from seantis.dir.contacts import _
 from seantis.dir.contacts.directory import IContactsDirectory
 from seantis.dir.contacts.contact import IContactPerson
 
+
 class IContactsDirectoryItem(IDirectoryItem):
     """Extends the seantis.dir.base IDirectoryItem."""
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False,
-            default=None
-        )
+        title=_(u'Image'),
+        required=False,
+        default=None
+    )
 
     searchable('street')
     street = TextLine(
-            title=_(u'Street'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Street'),
+        required=False,
+        default=u''
+    )
 
     searchable('zipcode')
     zipcode = TextLine(
-            title=_(u'Zipcode'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Zipcode'),
+        required=False,
+        default=u''
+    )
 
     searchable('city')
     city = TextLine(
-            title=_(u'Town'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Town'),
+        required=False,
+        default=u''
+    )
 
     searchable('phone')
     phone = TextLine(
-            title=_(u'Phone'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Phone'),
+        required=False,
+        default=u''
+    )
 
     searchable('fax')
     fax = TextLine(
-            title=_(u'Fax'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Fax'),
+        required=False,
+        default=u''
+    )
 
     searchable('url')
     url = URI(
-            title=_(u'Internet Address'),
-            required = False,
-            default=None
-        )
+        title=_(u'Internet Address'),
+        required=False,
+        default=None
+    )
 
     searchable('email')
     email = Email(
-            title=_(u'Email'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Email'),
+        required=False,
+        default=u''
+    )
 
     searchable('opening_hours')
     opening_hours = Text(
-            title=_(u'Opening Hours'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Opening Hours'),
+        required=False,
+        default=u''
+    )
 
     searchable('information')
     form.widget(information=WysiwygFieldWidget)
     information = Text(
-            title=_(u'Information'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Information'),
+        required=False,
+        default=u''
+    )
+
 
 class ContactsDirectoryItem(DirectoryItem):
     pass
+
 
 class ContactsDirectoryItemViewlet(grok.Viewlet):
     grok.context(IContactsDirectoryItem)
@@ -127,10 +130,14 @@ class View(core.View):
 
     def html_opening_hours(self):
         """Returns the opening_hours with newlines replaced by <br/> tags"""
-        return self.context.opening_hours and self.context.opening_hours.replace('\n', '<br />') or ''
+        return self.context.opening_hours and \
+            self.context.opening_hours.replace('\n', '<br />') or ''
+
 
 class ExtendedDirectoryItemFieldMap(grok.Adapter):
-    """Adapter extending the import/export fieldmap of seantis.dir.base.item."""
+    """Adapter extending the import/export fieldmap of seantis.dir.base.item.
+
+    """
     grok.context(IContactsDirectory)
     grok.provides(IFieldMapExtender)
 
@@ -141,12 +148,12 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         itemmap.typename = 'seantis.dir.contacts.item'
         itemmap.interface = IContactsDirectoryItem
 
-        extended = ['street', 'zipcode', 'city', 'phone', 'fax', 
+        extended = ['street', 'zipcode', 'city', 'phone', 'fax',
                     'url', 'email', 'opening_hours', 'information']
-        
+
         itemmap.add_fields(extended, len(itemmap))
 
-        contactfields = ['first_name', 'last_name', 
+        contactfields = ['first_name', 'last_name',
                          'street', 'zipcode', 'phone',
                          'fax', 'email', 'function']
 

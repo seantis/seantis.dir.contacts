@@ -1,19 +1,21 @@
 from setuptools import setup, find_packages
 import os
 
+README = open("README.md").read()
+HISTORY = open(os.path.join("docs", "HISTORY.txt")).read()
+
 version = '1.2a1'
 
 setup(name='seantis.dir.contacts',
       version=version,
       description="Directory of Contacts",
-      long_description=open("README.md").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description=README + "\n" + HISTORY,
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        "Framework :: Plone",
-        "Programming Language :: Python",
-        ],
+          "Framework :: Plone",
+          "Programming Language :: Python",
+      ],
       keywords='',
       author='Seantis GmbH',
       author_email='info@seantis.ch',

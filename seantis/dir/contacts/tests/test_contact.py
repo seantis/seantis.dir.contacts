@@ -1,6 +1,7 @@
 from seantis.dir.contacts.tests import IntegrationTestCase
 from seantis.dir.contacts.contact import IContactPerson
 
+
 class TestContactPerson(IntegrationTestCase):
 
     def test_add(self):
