@@ -24,6 +24,7 @@ Installation
         ...
         http://good-py.appspot.com/release/dexterity/1.1?plone=4.1.2
 
+
 2. Add the module to your instance eggs::
 
     [instance]
@@ -32,6 +33,7 @@ Installation
         ...
         seantis.dir.contacts
 
+
 3. Ensure that the i18n files are compiled by adding::
 
     [instance]
@@ -39,6 +41,7 @@ Installation
       environment-vars =
         ...
         zope_i18n_compile_mo_files true
+
 
 4. Install dexterity and seantis.dir.contacts using portal_quickinstaller
 
