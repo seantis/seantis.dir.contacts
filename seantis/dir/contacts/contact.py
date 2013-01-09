@@ -8,73 +8,75 @@ from collective.dexteritytextindexer import searchable
 from seantis.dir.base.schemafields import Email
 from seantis.dir.contacts import _
 
+
 class IContactPerson(form.Schema):
     """Contact person for a specific directory item."""
 
     searchable('first_name')
     first_name = TextLine(
-            title=_(u'First Name'),
-        )
+        title=_(u'First Name'),
+    )
 
     searchable('last_name')
     last_name = TextLine(
-            title=_(u'Last Name'),
-        )
+        title=_(u'Last Name'),
+    )
 
     image = NamedImage(
-            title=_(u'Image'),
-            required=False,
-            default=None
-        )
+        title=_(u'Image'),
+        required=False,
+        default=None
+    )
 
     searchable('street')
     street = TextLine(
-            title=_(u'Street'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Street'),
+        required=False,
+        default=u''
+    )
 
     searchable('zipcode')
     zipcode = TextLine(
-            title=_(u'Zipcode'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Zipcode'),
+        required=False,
+        default=u''
+    )
 
     searchable('town')
     town = TextLine(
-            title=_(u'Town'),
-            required=False,
-            default=u''
-        )
+        title=_(u'Town'),
+        required=False,
+        default=u''
+    )
 
     searchable('phone')
     phone = TextLine(
-            title=_(u'Phone'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Phone'),
+        required=False,
+        default=u''
+    )
 
     searchable('fax')
     fax = TextLine(
-            title=_(u'Fax'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Fax'),
+        required=False,
+        default=u''
+    )
 
     searchable('email')
     email = Email(
-            title=_(u'Email'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Email'),
+        required=False,
+        default=u''
+    )
 
     searchable('function')
     function = TextLine(
-            title=_(u'Function'),
-            required = False,
-            default=u''
-        )
+        title=_(u'Function'),
+        required=False,
+        default=u''
+    )
+
 
 class ContactPerson(Item):
     @property
