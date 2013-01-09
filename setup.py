@@ -6,7 +6,7 @@ version = '1.2'
 setup(name='seantis.dir.contacts',
       version=version,
       description="Directory of Contacts",
-      long_description=open("README.md").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
