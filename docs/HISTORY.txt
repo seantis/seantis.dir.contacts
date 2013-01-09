@@ -1,8 +1,8 @@
 
 # Changelog
 
-1.2a
-----
+1.2
+---
 
 - Adds collective.geo compatiblity
 - Copies improvements of the code introduced in other seantis.dir.* modules.
