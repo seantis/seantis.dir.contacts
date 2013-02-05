@@ -22,7 +22,7 @@ Installation
 
     extends =
         ...
-        http://good-py.appspot.com/release/dexterity/1.1?plone=4.1.2
+        http://dist.plone.org/release/4.2/versions.cfg
 
 
 2. Add the module to your instance eggs::
