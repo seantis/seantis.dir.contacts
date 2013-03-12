@@ -37,22 +37,28 @@
                 </div>
                 <div class="categoryTypes" content="python: ', '.join(context.cat1)"></div>
                 <div class="directoryDates">
-                    <p>
-                        <span tal:content="context/street" /><br />
+                    <ul class="no-bullets">
+                        <li tal:condition="context/street" tal:content="context/street" />
+                        <li tal:condition="python: context.get('zipcode') or context.get('city')">
                         <span tal:content="context/zipcode" /> <span tal:content="context/city" />
-                    </p>
-                    <p>
-                        <span i18n:translate="Phone" tal:condition="context/phone">Phone</span> <span tal:content="context/phone" /><br />
-                        <span i18n:translate="Fax" tal:condition="context/fax">Fax</span> <span tal:content="context/fax" />
-                    </p>  
-                    <p>
-                        <a tal:condition="python: hasattr(context, 'email')" tal:attributes="href python: 'mailto:' + (context.email or '')">
+                    </li>
+                    <li tal:condition="context/phone">
+                        <span i18n:translate="Phone" >Phone</span> <span tal:content="context/phone" />
+                        </li>
+                        <li tal:condition="context/fax">
+                        <span i18n:translate="Fax">Fax</span> <span tal:content="context/fax" />
+                        </li>
+                        <li tal:condition="context/email">
+                        <a tal:attributes="href python: 'mailto:' + (context.email or '')">
                             <span tal:replace="context/email" />
-                        </a><br />
-                        <a tal:condition="python: hasattr(context, 'url')" tal:attributes="href context/url">
+                        </a>
+                        </li>
+                        <li tal:condition="context/url">
+                        <a tal:attributes="href context/url">
                             <span tal:replace="context/url" />
                         </a>
-                    </p>                    
+                        </li>
+                    </ul>                    
                     <p tal:condition="context/opening_hours"><span i18n:translate="Opening Hours" />: <span tal:content="structure view/html_opening_hours" /></p>
                     <div tal:condition="python: hasattr(context, 'information') and context.information">
                         <p tal:content="structure context/information"></p>
@@ -78,13 +84,18 @@
                             
                      </div>
 
-                    <p>
-                        <span tal:condition="python: hasattr(contact, 'street')" tal:content="contact/street" /><br />
-                        <span tal:condition="python: hasattr(contact, 'zipcode')" tal:content="contact/zipcode" /> <span tal:condition="python: hasattr(contact, 'town')" tal:content="contact/town" /><br />
-                        <span i18n:translate="Phone" tal:condition="contact/phone">Phone</span> <span tal:condition="python: hasattr(contact, 'phone')" tal:content="contact/phone" /><br />
-                        <span i18n:translate="Fax" tal:condition="contact/fax">Fax</span> <span tal:content="contact/fax" tal:condition="python: hasattr(contact, 'fax')"/><br />
-                        <a tal:condition="python: hasattr(contact, 'email')" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a><br />
-                    </p>
+                    <ul class="no-bullets">
+                        <li tal:condition="python: contact.get('street')" tal:content="contact/street" />
+                        <li tal:condition="python: contact.get('zipcode') or contact.get('town')"> <span tal:condition="contact/zipcode" tal:content="contact/zipcode" /> <span tal:condition="contact/town" tal:content="contact/town" />
+                            </li>
+                        <li tal:condition="contact/phone"><span i18n:translate="Phone" >Phone</span> <span tal:content="contact/phone" />
+                        </li>
+                        <li tal:condition="contact/fax"> <span i18n:translate="Fax" >Fax</span> <span tal:content="contact/fax" />
+                        </li>
+                        <li>
+                        <a tal:condition="contact/email" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a>
+                    </li>
+                    </ul>
                 </div>
             </div>
         </div>
