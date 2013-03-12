@@ -28,5 +28,9 @@
         provides="Products.GenericSetup.interfaces.EXTENSION"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot" 
         />
-        
+
+    <browser:resourceDirectory
+        name='seanits.dir.contacts-resources'
+        directory="resources" />
+
 </configure>
