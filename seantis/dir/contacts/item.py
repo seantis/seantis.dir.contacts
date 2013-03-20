@@ -2,6 +2,7 @@ from five import grok
 
 from zope.schema import TextLine, Text
 from zope.schema import URI
+from zope.interface import Interface
 from plone.memoize import view
 from plone.namedfile.field import NamedImage
 from plone.directives import form
@@ -101,7 +102,7 @@ class ContactsDirectoryItem(DirectoryItem):
 
 
 class ContactsDirectoryItemViewlet(grok.Viewlet):
-    grok.context(IContactsDirectoryItem)
+    grok.context(Interface)
     grok.name('seantis.dir.contacts.item.detail')
     grok.require('zope2.View')
     grok.viewletmanager(DirectoryItemViewletManager)
