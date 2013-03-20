@@ -155,7 +155,7 @@ class ExtendedDirectoryItemFieldMap(grok.Adapter):
         itemmap.add_fields(extended, len(itemmap))
 
         contactfields = ['first_name', 'last_name',
-                         'street', 'zipcode', 'phone',
+                         'street', 'zipcode', 'town', 'phone',
                          'fax', 'email', 'function']
 
         contactmap = FieldMap()
