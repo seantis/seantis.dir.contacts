@@ -1,7 +1,6 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.schema import URI
 from zope.interface import Interface
 from plone.memoize import view
 from plone.namedfile.field import NamedImage
@@ -16,7 +15,7 @@ from seantis.dir.base.interfaces import (
     IDirectoryItem
 )
 from seantis.dir.base.fieldmap import FieldMap
-from seantis.dir.base.schemafields import Email
+from seantis.dir.base.schemafields import Email, AutoProtocolURI
 
 from seantis.dir.contacts import _
 from seantis.dir.contacts.directory import IContactsDirectory
@@ -68,7 +67,7 @@ class IContactsDirectoryItem(IDirectoryItem):
     )
 
     searchable('url')
-    url = URI(
+    url = AutoProtocolURI(
         title=_(u'Internet Address'),
         required=False,
         default=None
