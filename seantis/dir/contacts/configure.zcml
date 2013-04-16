@@ -33,4 +33,14 @@
         name='seanits.dir.contacts-resources'
         directory="resources" />
 
+    <!-- Upgrades -->
+    <genericsetup:upgradeStep
+        title="Add new css"
+        description=""
+        source="2"
+        destination="3"
+        handler=".upgrades.upgrade_2_to_3"
+        profile="seantis.dir.contacts:default">
+    </genericsetup:upgradeStep>
+
 </configure>
