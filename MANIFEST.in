@@ -1,3 +1,6 @@
-global-include *.css *.po *.pot *.pt *.xml *.zcml
-global-include README.rst
-global-include docs/*
+recursive-include seantis *
+recursive-include docs *
+include *.txt
+include *.rst
+global-exclude *.mo
+global-exclude *.pyc
