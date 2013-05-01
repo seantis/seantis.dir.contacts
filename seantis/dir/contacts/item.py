@@ -1,7 +1,6 @@
 from five import grok
 
 from zope.schema import TextLine, Text
-from zope.interface import Interface
 from plone.memoize import view
 from plone.namedfile.field import NamedImage
 from plone.directives import form
@@ -9,7 +8,7 @@ from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from collective.dexteritytextindexer import searchable
 
 from seantis.dir.base import core
-from seantis.dir.base.item import DirectoryItem, DirectoryItemViewletManager
+from seantis.dir.base.item import DirectoryItem
 from seantis.dir.base.interfaces import (
     IFieldMapExtender,
     IDirectoryItem
@@ -98,15 +97,6 @@ class IContactsDirectoryItem(IDirectoryItem):
 
 class ContactsDirectoryItem(DirectoryItem):
     pass
-
-
-class ContactsDirectoryItemViewlet(grok.Viewlet):
-    grok.context(Interface)
-    grok.name('seantis.dir.contacts.item.detail')
-    grok.require('zope2.View')
-    grok.viewletmanager(DirectoryItemViewletManager)
-
-    template = grok.PageTemplateFile('templates/listitem.pt')
 
 
 class View(core.View):
