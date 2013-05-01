@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.4
+---
+
+- Upgrade to seantis.dir.base 1.4.1
+
 1.3.3
 -----
 

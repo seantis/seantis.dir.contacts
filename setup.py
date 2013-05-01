@@ -1,26 +1,28 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.3.3'
+version = '1.4'
 
 tests_require = [
     'collective.testcaselayer',
-    ]
+]
 
 setup(name='seantis.dir.contacts',
       version=version,
       description="Directory of Contacts",
-      long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+      long_description='\n'.join((
+          open("README.rst").read(),
+          open(os.path.join("docs", "HISTORY.txt")).read()
+      )),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[
-        'Framework :: Plone',
-        'Framework :: Plone :: 4.2',
-        'Intended Audience :: Developers',
-        'Topic :: Software Development :: Libraries :: Python Modules',
-        "Programming Language :: Python",
-        ],
+          'Framework :: Plone',
+          'Framework :: Plone :: 4.3',
+          'Intended Audience :: Developers',
+          'Topic :: Software Development :: Libraries :: Python Modules',
+          "Programming Language :: Python",
+      ],
       keywords='',
       author='Seantis GmbH',
       author_email='info@seantis.ch',
@@ -38,7 +40,7 @@ setup(name='seantis.dir.contacts',
           'plone.behavior',
           'plone.directives.form',
           'collective.dexteritytextindexer',
-          'seantis.dir.base>=1.3',
+          'seantis.dir.base>=1.4.1',
       ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
