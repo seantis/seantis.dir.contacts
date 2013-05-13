@@ -5,6 +5,7 @@ Changelog
 1.4
 ---
 
+- Use default list view from seantis.dir.base
 - Upgrade to seantis.dir.base 1.4.1
 
 1.3.3
