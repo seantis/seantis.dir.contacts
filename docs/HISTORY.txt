@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.5 (unreleased)
+---
+ - Upgrade to seantis.dir.base 1.5
+
 1.4
 ---
 
