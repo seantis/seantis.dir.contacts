@@ -9,10 +9,17 @@ types and fields to build a catalog of personell.
 
 
 Build Status
-============
+------------
 
 .. image:: https://secure.travis-ci.org/seantis/seantis.dir.contacts.png
    :target: https://travis-ci.org/seantis/seantis.dir.contacts
+
+
+Latest PyPI Release
+-------------------
+.. image:: https://pypip.in/v/seantis.dir.contacts/badge.png
+  :target: https://crate.io/packages/seantis.dir.contacts
+  :alt: Latest PyPI version
 
 
 Installation
