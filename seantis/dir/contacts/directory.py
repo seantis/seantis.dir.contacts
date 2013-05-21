@@ -1,6 +1,7 @@
 from five import grok
 from plone.namedfile.field import NamedImage
 
+from seantis.dir.base import directory
 from seantis.dir.base.directory import Directory, DirectoryViewletManager
 from seantis.dir.base.interfaces import IDirectory
 from seantis.dir.contacts import _
@@ -27,3 +28,10 @@ class ContactsDirectoryViewlet(grok.Viewlet):
     grok.viewletmanager(DirectoryViewletManager)
 
     template = grok.PageTemplateFile('templates/directorydetail.pt')
+
+
+class View(directory.View):
+    grok.context(IContactsDirectory)
+    grok.require('zope2.View')
+
+    template = grok.PageTemplateFile('templates/directory.pt')

@@ -43,4 +43,13 @@
         profile="seantis.dir.contacts:default">
     </genericsetup:upgradeStep>
 
+    <genericsetup:upgradeStep
+        title="Upgrade to seantis.dir.base 1.5"
+        description=""
+        source="3"
+        destination="1000"
+        handler=".upgrades.upgrade_3_to_1000"
+        profile="seantis.dir.contacts:default">
+    </genericsetup:upgradeStep>
+
 </configure>

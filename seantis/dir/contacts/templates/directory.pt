@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/@@seantis-dir-macros/directory"
+      i18n:domain="seantis.dir.contacts">
+<body>
+
+<metal:block metal:fill-slot="directory-result-list">
+  <metal:use use-macro="context/@@seantis-dir-macros/resultlist">
+    <metal:fill-slot fill-slot="result-list-entry">
+      <div class="directoryInfoText">
+        <a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a>
+      </div>
+    </metal:fill-slot>
+  </metal:use>
+</metal:block>
+
+</body>
+</html>

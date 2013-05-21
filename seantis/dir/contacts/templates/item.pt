@@ -15,7 +15,7 @@
 <metal:main fill-slot="main">
     <tal:main-macro metal:define-macro="main">
         <div tal:replace="structure provider:plone.abovecontenttitle" />
-        <a tal:attributes="href python: context.get_parent().absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="python: context.get_parent().title" /></a>
+        <a tal:attributes="href python: context.aq_inner.aq_parent.absolute_url() + '?reset=true'"><h1 class="documentFirstHeading" tal:content="python: context.aq_inner.aq_parent.title" /></a>
         <div tal:replace="structure provider:plone.belowcontenttitle" />
         <div tal:replace="structure provider:plone.abovecontentbody" />
         
