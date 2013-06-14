@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.5.1 (unreleased)
+-----
+
+- Fixes zipcode / city not showing
+
 1.5
 ---
 
