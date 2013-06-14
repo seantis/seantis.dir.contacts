@@ -70,7 +70,7 @@
             <metal:use use-macro="context/@@seantis-dir-macros/macros/map"></metal:use>
 
         </div>
-
+        <div class="visualClear"><!-- --></div>
         <div id="directoryInfoPage" tal:condition="view/contacts">
             <h2 i18n:translate="Contact persons"></h2>
             <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
