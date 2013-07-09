@@ -6,6 +6,7 @@ from plone.namedfile.field import NamedImage
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from collective.dexteritytextindexer import searchable
+from zope.security import checkPermission
 
 from seantis.dir.base import core
 from seantis.dir.base.item import DirectoryItem
@@ -110,7 +111,9 @@ class View(core.View):
     def contacts(self):
         children = (obj[1] for obj in self.context.contentItems())
         is_contact = lambda child: IContactPerson.providedBy(child)
-        return [c for c in children if is_contact(c)]
+        is_visible = lambda child: checkPermission('zope2.View', child)
+
+        return [c for c in children if is_contact(c) and is_visible(c)]
 
     def description(self):
         if self.context.description:

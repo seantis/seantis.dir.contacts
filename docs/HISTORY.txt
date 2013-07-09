@@ -6,6 +6,7 @@ Changelog
 ------------------
 
 - Streamlines contacts information in item view
+- Don't show contacts the user has no permission to
 
 1.5.2
 -----
