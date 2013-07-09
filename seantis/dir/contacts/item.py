@@ -115,6 +115,9 @@ class View(core.View):
 
         return [c for c in children if is_contact(c) and is_visible(c)]
 
+    def may_manage(self, contact):
+        return checkPermission('cmf.ModifyPortalContent', contact)
+
     def description(self):
         if self.context.description:
             return self.context.description.split('\n')

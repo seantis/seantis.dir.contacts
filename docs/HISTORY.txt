@@ -7,6 +7,7 @@ Changelog
 
 - Streamlines contacts information in item view
 - Don't show contacts the user has no permission to
+- Adds a link to the contact object for managers
 
 1.5.2
 -----

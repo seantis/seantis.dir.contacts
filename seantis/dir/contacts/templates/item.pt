@@ -79,7 +79,16 @@
                         <img tal:replace="structure contact/@@images/image/thumb" />
                     </li>
                     <li>
-                        <strong><span tal:content="contact/first_name"></span> <span tal:content="contact/last_name"></span></strong>
+                        <strong>
+                            <a tal:condition="python: view.may_manage(contact)" tal:attributes="href contact/absolute_url">
+                                <span tal:content="contact/first_name"></span>
+                                <span tal:content="contact/last_name"></span>
+                            </a>
+                            <tal:block tal:condition="python: not view.may_manage(contact)">
+                                <span tal:content="contact/first_name"></span>
+                                <span tal:content="contact/last_name"></span>
+                            </tal:block>
+                        </strong>
                     </li>
                     <li tal:define="function contact/function | nothing" tal:condition="function" tal:content="function" />
                     <li tal:define="street contact/street | nothing" tal:condition="street" tal:content="street" />
