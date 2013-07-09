@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.5.4
+-----
+- Fixes typo in item view
+
 1.5.3
 -----
 

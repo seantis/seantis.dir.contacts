@@ -93,7 +93,7 @@
                     <li tal:define="function contact/function | nothing" tal:condition="function" tal:content="function" />
                     <li tal:define="street contact/street | nothing" tal:condition="street" tal:content="street" />
                     <li tal:define="zipcode contact/zipcode | nothing; city contact/city | nothing" tal:condition="zipcode | city">
-                        <span tal:condition="zipcode" tal:content="zipcode"> </span tal:condition="city" tal:content="city">
+                        <span tal:condition="zipcode" tal:content="zipcode" /> <span tal:condition="city" tal:content="city" />
                     </li>
                     <li tal:define="phone contact/phone | nothing" tal:condition="phone">
                         <span i18n:translate="Phone">Phone</span> <span tal:content="phone" />
