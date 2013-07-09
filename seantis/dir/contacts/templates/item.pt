@@ -73,30 +73,31 @@
         <div class="visualClear"><!-- --></div>
         <div id="directoryInfoPage" tal:condition="view/contacts">
             <h2 i18n:translate="Contact persons"></h2>
-            <div class="directoryDetailsBlock" tal:repeat="contact view/contacts">
-                <div class="directoryInfoText">
-                    <div class="documentDescription">
-                            <p>
-                                <span tal:replace="contact/first_name" /> <span tal:replace="contact/last_name" /><br />
-                                <span tal:condition="contact/function" tal:replace="contact/function" />
-                            </p>
-                            <div tal:condition="contact/image"><img tal:replace="structure contact/@@images/image/thumb" /></div>
-                            
-                     </div>
-
-                    <ul class="no-bullets">
-                        <li tal:condition="python: contact.get('street')" tal:content="contact/street" />
-                        <li tal:condition="python: contact.get('zipcode') or contact.get('town')"> <span tal:condition="contact/zipcode" tal:content="contact/zipcode" /> <span tal:condition="contact/town" tal:content="contact/town" />
-                            </li>
-                        <li tal:condition="contact/phone"><span i18n:translate="Phone" >Phone</span> <span tal:content="contact/phone" />
-                        </li>
-                        <li tal:condition="contact/fax"> <span i18n:translate="Fax" >Fax</span> <span tal:content="contact/fax" />
-                        </li>
-                        <li>
-                        <a tal:condition="contact/email" tal:attributes="href python: 'mailto:' + (contact.email or '')"><span tal:replace="contact/email" /></a>
+            <div tal:repeat="contact view/contacts">
+                <ul class="no-bullets">
+                    <li tal:condition="contact/image">
+                        <img tal:replace="structure contact/@@images/image/thumb" />
                     </li>
-                    </ul>
-                </div>
+                    <li>
+                        <strong><span tal:content="contact/first_name"></span> <span tal:content="contact/last_name"></span></strong>
+                    </li>
+                    <li tal:define="function contact/function | nothing" tal:condition="function" tal:content="function" />
+                    <li tal:define="street contact/street | nothing" tal:condition="street" tal:content="street" />
+                    <li tal:define="zipcode contact/zipcode | nothing; city contact/city | nothing" tal:condition="zipcode | city">
+                        <span tal:condition="zipcode" tal:content="zipcode"> </span tal:condition="city" tal:content="city">
+                    </li>
+                    <li tal:define="phone contact/phone | nothing" tal:condition="phone">
+                        <span i18n:translate="Phone">Phone</span> <span tal:content="phone" />
+                    </li>
+                    <li tal:define="fax contact/fax | nothing" tal:condition="fax">
+                        <span i18n:translate="Fax">Fax</span> <span tal:content="fax" />
+                    </li>
+                    <li tal:define="email contact/email | nothing" tal:condition="email">
+                        <a tal:condition="email" tal:attributes="href string: mailto: ${email}">
+                            <span tal:replace="email" />
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
 
