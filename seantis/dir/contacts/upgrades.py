@@ -18,3 +18,15 @@ def upgrade_3_to_1000(context):
         context, 'seantis.dir.contacts', IContactsDirectoryItem
     )
     reset_images(context, (IContactsDirectory, IContactsDirectoryItem))
+
+
+def upgrade_1000_to_1001(context):
+    # add collective.geo.behaviour
+    setup = getToolByName(context, 'portal_setup')
+    setup.runAllImportStepsFromProfile(
+        'profile-collective.geo.behaviour:default'
+    )
+
+    add_behavior_to_item(
+        context, 'seantis.dir.contacts', IContactsDirectoryItem
+    )
