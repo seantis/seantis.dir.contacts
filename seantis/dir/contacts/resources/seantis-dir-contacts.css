@@ -1,8 +1,9 @@
-#content ul.no-bullets{
-    list-style: none;
-    margin-left: 0em;
+.portaltype-seantis-dir-contacts-directory #directorySearch {
+    padding: 1em 1.5em;
+    margin-top: auto;
 }
 
-#directoryResultList > div:first-child {
-    padding-top: 10px !important;   
+.portaltype-seantis-dir-contacts-directory .directoryResult {
+    padding: 1em 1.5em;
+    margin: auto;
 }
