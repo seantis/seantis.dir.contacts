@@ -2,6 +2,10 @@
 Changelog
 =========
 
+1.7
+---
+- Upgrade to seantis.dir.base 1.7
+
 1.6
 ---
 - Upgrade to seantis.dir.base 1.6
@@ -16,61 +20,50 @@ Changelog
 
 1.5.3
 -----
-
 - Streamlines contacts information in item view
 - Don't show contacts the user has no permission to
 - Adds a link to the contact object for managers
 
 1.5.2
 -----
-
 - Include origin merges (replaces 1.5.1)
 
 1.5.1
 -----
-
 - Fixes zipcode / city not showing
 
 1.5
 ---
-
 - Upgrade to seantis.dir.base 1.5
 
 1.4
 ---
-
 - Use default list view from seantis.dir.base
 - Upgrade to seantis.dir.base 1.4.1
 
 1.3.3
 -----
-
 - Add all required files to MANIFEST.in
 
 1.3.2
 -----
-
 - Fix packaging issue: Include README.rst file
 
 1.3.1
 -----
-
 - Add seantis.dir.base as dependency
 
 1.3
 ---
-
 - Automatically use http for urls that lack a protocol
 - Adds town to export
 
 
 1.2
 ---
-
 - Adds collective.geo compatiblity
 - Copies improvements of the code introduced in other seantis.dir.* modules.
 
 1.0
 ---
-
 - Initial release
