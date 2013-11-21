@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.6'
+version = '1.7'
 
 tests_require = [
     'collective.testcaselayer',
@@ -40,7 +40,7 @@ setup(name='seantis.dir.contacts',
           'plone.behavior',
           'plone.directives.form',
           'collective.dexteritytextindexer',
-          'seantis.dir.base>=1.6',
+          'seantis.dir.base>=1.7',
       ],
       tests_require=tests_require,
       extras_require=dict(tests=tests_require),
