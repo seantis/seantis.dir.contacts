@@ -7,3 +7,7 @@
     padding: 1em 1.5em;
     margin: auto;
 }
+
+.portaltype-seantis-dir-contacts-item .function-kml_download-inverse {
+    display: none;
+}
