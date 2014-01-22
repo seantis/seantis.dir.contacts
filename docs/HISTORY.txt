@@ -2,6 +2,12 @@
 Changelog
 =========
 
+1.7.1 (unreleased)
+------------------
+
+- Hide kml document icon by default.
+  [href]
+
 1.7
 ---
 - Upgrade to seantis.dir.base 1.7
