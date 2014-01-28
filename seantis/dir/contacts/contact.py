@@ -5,7 +5,7 @@ from plone.directives import form
 from plone.dexterity.content import Item
 from collective.dexteritytextindexer import searchable
 
-from seantis.dir.base.schemafields import Email
+from seantis.plonetools.schemafields import Email
 from seantis.dir.contacts import _
 
 

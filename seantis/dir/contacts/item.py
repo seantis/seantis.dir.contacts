@@ -15,7 +15,7 @@ from seantis.dir.base.interfaces import (
     IDirectoryItem
 )
 from seantis.dir.base.fieldmap import FieldMap
-from seantis.dir.base.schemafields import Email, AutoProtocolURI
+from seantis.plonetools.schemafields import Email, Website
 
 from seantis.dir.contacts import _
 from seantis.dir.contacts.directory import IContactsDirectory
@@ -67,7 +67,7 @@ class IContactsDirectoryItem(IDirectoryItem):
     )
 
     searchable('url')
-    url = AutoProtocolURI(
+    url = Website(
         title=_(u'Internet Address'),
         required=False,
         default=None
