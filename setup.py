@@ -5,6 +5,8 @@ version = '1.7.2'
 
 tests_require = [
     'collective.testcaselayer',
+    'plone.app.testing',
+    'collective.betterbrowser[pyquery]'
 ]
 
 setup(name='seantis.dir.contacts',

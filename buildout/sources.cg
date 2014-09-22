@@ -1,0 +1,3 @@
+[sources]
+seantis.dir.base = git git://github.com/seantis/seantis.dir.base.git
+sauna.reload = git git://github.com/epeli/sauna.reload.git
