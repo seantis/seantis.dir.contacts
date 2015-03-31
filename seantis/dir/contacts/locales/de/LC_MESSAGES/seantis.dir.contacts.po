@@ -24,7 +24,7 @@ msgstr "Kontaktpersonen"
 
 #: ./profiles/default/types/seantis.dir.contacts.directory.xml
 msgid "Contacts Directory"
-msgstr "Konaktverzeichnis"
+msgstr "Kontaktverzeichnis"
 
 #: ./profiles/default/types/seantis.dir.contacts.item.xml
 msgid "Contacts Directory Item"
@@ -92,4 +92,3 @@ msgstr "Ort"
 #: ./item.py:42
 msgid "Zipcode"
 msgstr "PLZ"
-
