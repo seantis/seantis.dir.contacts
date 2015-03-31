@@ -2,8 +2,11 @@
 Changelog
 =========
 
-1.7.3 (unreleased)
+1.8 (unreleased)
 ------------------
+
+- Add Possibility to Add Attachments. Implements #9.
+  [msom]
 
 - Fix typo in translation. Fixes #8
   [msom]

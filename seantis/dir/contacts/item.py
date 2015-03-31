@@ -2,7 +2,7 @@ from five import grok
 
 from zope.schema import TextLine, Text
 from plone.memoize import view
-from plone.namedfile.field import NamedImage
+from plone.namedfile.field import NamedImage, NamedFile
 from plone.directives import form
 from plone.app.z3cform.wysiwyg import WysiwygFieldWidget
 from collective.dexteritytextindexer import searchable
@@ -29,6 +29,16 @@ class IContactsDirectoryItem(IDirectoryItem):
         title=_(u'Image'),
         required=False,
         default=None
+    )
+
+    attachment_1 = NamedFile(
+        title=_(u'Attachment 1'),
+        required=False
+    )
+
+    attachment_2 = NamedFile(
+        title=_(u'Attachment 2'),
+        required=False
     )
 
     searchable('street')
