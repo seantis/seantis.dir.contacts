@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2012-08-23 14:44+0000\n"
+"POT-Creation-Date: 2015-03-31 14:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,11 +14,19 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: DOMAIN\n"
 
+#: ./item.py:35
+msgid "Attachment 1"
+msgstr "Anhang 1"
+
+#: ./item.py:40
+msgid "Attachment 2"
+msgstr "Anhang 2"
+
 #: ./profiles/default/types/seantis.dir.contacts.contact.xml
 msgid "Contact Person"
 msgstr "Kontaktperson"
 
-#: ./templates/item.pt:69
+#: ./templates/item.pt:75
 msgid "Contact persons"
 msgstr "Kontaktpersonen"
 
@@ -30,65 +38,65 @@ msgstr "Kontaktverzeichnis"
 msgid "Contacts Directory Item"
 msgstr "Kontaktverzeichnis Eintrag"
 
-#: ./contact.py:67
-#: ./item.py:77
+#: ./contact.py:68
+#: ./item.py:88
 msgid "Email"
 msgstr "Email"
 
-#: ./contact.py:60
-#: ./item.py:63
-#: ./templates/item.pt:46
+#: ./contact.py:61
+#: ./item.py:74
+#: ./templates/item.pt:49
 msgid "Fax"
 msgstr "Fax"
 
-#: ./contact.py:16
+#: ./contact.py:17
 msgid "First Name"
 msgstr "Vorname"
 
-#: ./contact.py:74
+#: ./contact.py:75
 msgid "Function"
 msgstr "Funktion"
 
-#: ./contact.py:25
-#: ./directory.py:12
-#: ./item.py:28
+#: ./contact.py:26
+#: ./directory.py:14
+#: ./item.py:29
 msgid "Image"
 msgstr "Bild"
 
-#: ./item.py:92
+#: ./item.py:103
 msgid "Information"
 msgstr "Informationen"
 
-#: ./item.py:70
+#: ./item.py:81
 msgid "Internet Address"
 msgstr "Internet Adresse"
 
-#: ./contact.py:21
+#: ./contact.py:22
 msgid "Last Name"
 msgstr "Nachname"
 
-#: ./item.py:84
-#: ./templates/item.pt:56
+#: ./item.py:95
+#: ./templates/item.pt:62
 msgid "Opening Hours"
 msgstr "Öffnungszeiten"
 
-#: ./contact.py:53
-#: ./item.py:56
-#: ./templates/item.pt:45
+#: ./contact.py:54
+#: ./item.py:67
+#: ./templates/item.pt:46
 msgid "Phone"
 msgstr "Telefon"
 
-#: ./contact.py:32
-#: ./item.py:35
+#: ./contact.py:33
+#: ./item.py:46
 msgid "Street"
 msgstr "Strasse"
 
-#: ./contact.py:46
-#: ./item.py:49
+#: ./contact.py:47
+#: ./item.py:60
 msgid "Town"
 msgstr "Ort"
 
-#: ./contact.py:39
-#: ./item.py:42
+#: ./contact.py:40
+#: ./item.py:53
 msgid "Zipcode"
 msgstr "PLZ"
