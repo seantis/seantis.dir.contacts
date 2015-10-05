@@ -13,4 +13,5 @@ script: bin/coverage run bin/test -s seantis.dir.contacts
 
 after_success:
     - pip install coveralls
+    - python -m coverage.pickle2json
     - coveralls
