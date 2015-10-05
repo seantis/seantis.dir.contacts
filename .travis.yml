@@ -15,3 +15,5 @@ after_success:
     - pip install coveralls
     - python -m coverage.pickle2json
     - coveralls
+
+sudo: false
