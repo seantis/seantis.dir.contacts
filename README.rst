@@ -17,7 +17,7 @@ Build Status
 
 Latest PyPI Release
 -------------------
-.. image:: https://pypip.in/v/seantis.dir.contacts/badge.png
+.. image:: https://img.shields.io/pypi/v/seantis.dir.contacts.svg
   :target: https://crate.io/packages/seantis.dir.contacts
   :alt: Latest PyPI version
 
