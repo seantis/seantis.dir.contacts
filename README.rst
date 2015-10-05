@@ -15,6 +15,14 @@ Build Status
    :target: https://travis-ci.org/seantis/seantis.dir.contacts
 
 
+Coverage
+--------
+
+.. image:: https://coveralls.io/repos/seantis/seantis.dir.contacts/badge.png?branch=master
+  :target: https://coveralls.io/r/seantis/seantis.dir.contacts?branch=master
+  :alt: Project Coverage
+
+
 Latest PyPI Release
 -------------------
 .. image:: https://img.shields.io/pypi/v/seantis.dir.contacts.svg
