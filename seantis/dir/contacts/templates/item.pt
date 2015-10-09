@@ -23,9 +23,7 @@
 
             <div class="directoryTypes" tal:condition="context/cat1" tal:content="python: ', '.join(context.cat1)"></div>
 
-            <h2>
-                <tal:block content="context/title" />
-            </h2>
+            <h2 tal:content="context/title" />
 
             <div id="directoryResultList">
              <div class="directoryInfoText">

@@ -11,7 +11,7 @@
   <metal:use use-macro="context/@@seantis-dir-macros/resultlist">
     <metal:fill-slot fill-slot="result-list-entry">
       <div class="directoryInfoText">
-        <a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a>
+        <h2><a tal:attributes="href brain/getURL; id brain/id" tal:content="brain/Title"></a></h2>
         <div style="font-weight: normal;" class="documentDescription" tal:content="brain/Description"></div>
       </div>
     </metal:fill-slot>
