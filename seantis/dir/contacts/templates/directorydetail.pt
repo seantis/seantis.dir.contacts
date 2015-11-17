@@ -3,7 +3,7 @@
       <div id="landingPageImage" tal:condition="context/image">
         <img tal:replace="structure context/@@images/image/mini" />
       </div>
-      <h2 tal:content="context/subtitle" />
+      <h2 tal:condition="context/subtitle" tal:content="context/subtitle" />
       <div tal:content="structure context/html_description" />
     </div>
     <div style="clear: both;"></div>
